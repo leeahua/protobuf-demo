@@ -1,0 +1,60 @@
+//协议版本号
+syntax = "proto3";
+//引用外部proto协议文件
+import "common.proto";
+//协议所属包名
+package coom.lyh.protobuf.demo.protos;
+
+//对外输出 java包名
+option java_package = "com.lyh.protobuf.demo.business";
+//对外输出 java类名
+option java_outer_classname = "BrakingInfoReportProto";
+
+//定义油耗上报消息实体
+message BrakingInfoReport{
+    //定义油耗消息实体
+    message BrakingInfo{
+        /**
+        * 事件产生的时间(单位毫秒)
+        */
+        //private Long rts;
+        int64 rts = 1;
+        /**
+         * 制动液位
+         */
+        //private Float bol;
+        float bol = 2;
+    }
+    //消息类型
+    JsonMessageType jsonMessageType = 1;
+    //对象类型
+    ObjectMessageType objectMessageType = 2;
+    //mqtt协议版本号
+    string protocol = 3 ;
+    /**
+    * 车辆唯一标示
+    */
+   string sn = 4;
+
+    /**
+     * 车型ID
+     */
+   string carModelId = 5;
+    /**
+     * 消息传输时间(单位毫秒)
+     **/
+    int64 ts = 6;
+    /**
+     * 时间类型
+     **/
+    string et = 7;
+
+    /**
+	 * 行程ID
+	 */
+    int32 tripId = 8;
+
+    //油耗信息list
+    repeated BrakingInfo data = 9;
+
+}

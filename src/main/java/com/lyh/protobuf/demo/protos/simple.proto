@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package com.lyh.protobuf.demo.protos;
+
+option java_package = "com.lyh.protobuf.demo.business";
+option java_outer_classname = "User";
+
+message User{
+    required string name = 1;
+    optional int32 age = 2;
+    optional int64 ts = 3;
+    optional sint32 tem = 4;
+}

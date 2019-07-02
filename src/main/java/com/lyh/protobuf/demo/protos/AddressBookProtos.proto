@@ -1,0 +1,38 @@
+//protobuf 协议 版本 2.0
+syntax = "proto2";
+//协议包名 为避免不同消息协议冲突
+package com.lyh.protobuf.demo.protos;
+/*java 输出包名*/
+option java_package = "com.lyh.protobuf.demo.business";
+/*java 输出类名*/
+option java_outer_classname = "Address";
+
+
+/**
+  消息体定义格式：
+  message 消息体名称{
+    //消息体内容字段定义格式
+    修饰符 字段类型 字段名 = 序列号（序列号不要重复）;
+  }
+  这个Person 类里面 包含了四个成员变量 name, id, email, phones
+  一个内部enum类型的PhoneType 和 一个 PhoneNumber的结构体
+*/
+message Person {
+    required string name = 1;
+    required int32 id = 2;
+    optional string email = 3;
+    //枚举类定义，仅仅是定义而已 这个枚举定义在这里标识 是Person 下的 PhoneType
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+    //这也是个消息类型的定义，仅仅是定义而已，不过这个消息是内嵌在Person里面的
+    message PhoneNumber {
+        required string number = 1;
+        //在这使用的PhoneType
+        optional PhoneType type = 2 [default = HOME];
+    }
+    //在这使用的PhoneNumber
+    repeated PhoneNumber phones = 4;
+}

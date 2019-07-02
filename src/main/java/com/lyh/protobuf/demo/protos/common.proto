@@ -1,0 +1,136 @@
+
+//proto 协议版本号
+syntax = "proto3";
+
+//输出java包名
+option java_package = "com.lyh.protobuf.demo.business";
+//输出java类名
+option java_outer_classname = "Common";
+
+//定义公共消息类型
+enum JsonMessageType {
+    REPORT = 0;
+    REQUEST = 1;
+    RESPONSE = 2;
+}
+//定义公共消息传输对象类型
+enum ObjectMessageType{
+    /**
+* 连接请求
+*/
+    CONNECT_REQUEST= 0 ;
+    /**
+     * 连接响应
+     */
+    CONNECT_RESPONSE= 1 ;
+    /**
+     * 注册请求
+     */
+    REGISTER_REQUEST= 2 ;
+    /**
+     * 注册响应
+     */
+    REGISTER_RESPONSE= 3 ;
+    /**
+     * 登出请求
+     */
+    LOGOUT_REQUEST= 4 ;
+    /**
+     * 登出响应
+     */
+    LOGOUT_RESPONSE= 5 ;
+
+
+    /**
+    下发消息请求
+    */
+    PUSH_MESSAGE_REQUEST= 6 ;
+    /*
+    * 下发消息响应
+    */
+    PUSH_MESSAGE_RESPONSE= 7 ;
+
+    CONNECT_STATUS_REPORT= 8 ;
+
+    /***IOT 通道配置信息 end**/
+
+    /**
+     * 轨迹数据
+     **/
+    REPORT_GPS_DATA= 9 ;
+
+    /**
+     * 油量消息
+     **/
+    REPORT_REMAINED_OIL= 10 ;
+
+    /**
+     * 车辆状态消息
+     **/
+    REPORT_CAR_STATUS= 11 ;
+
+    /**
+     * 环境数据消息
+     **/
+    REPORT_ENVIRONMENT_DATA= 12 ;
+
+    /**
+     * 驾驶状态消息
+     **/
+    REPORT_DRIVE_STATUS= 13 ;
+
+    /**
+     * 油耗消息
+     **/
+    REPORT_OIL_CONSUMPTION= 14 ;
+
+    /**
+     * 驾驶行为消息
+     **/
+    REPORT_DRIVE_BEHAVIOR= 15 ;
+
+    /**
+     * 行驶速度消息
+     **/
+    REPORT_DRIVE_SPEED= 16 ;
+
+    /**
+     * 发动机转速消息
+     **/
+    REPORT_ENGINE_SPEED= 17 ;
+
+    /**
+     * 发动机状态消息
+     **/
+    REPORT_ENGINE_STATUS= 18 ;
+    /**
+     * 制动系统消息
+     **/
+    REPORT_BRAKING_INFO= 19 ;
+
+    /**
+     * 行程开始
+     **/
+    REPORT_TRIP_START= 20 ;
+
+    /**
+     * 车辆警报消息
+     **/
+    REPORT_CAR_WARN= 21 ;
+
+    /**
+     * 行程结束
+     **/
+    REPORT_TRIP_END= 22 ;
+
+    /**
+     * 轮胎消息
+     **/
+    REPORT_TYRE_INFO= 23 ;
+
+    /**
+     * broker信息上报
+     */
+    IOT_BROKER_INFO= 24 ;
+
+}
